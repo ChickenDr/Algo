@@ -1,2 +1,5 @@
 Debug
 TMP.*
+.vscode
+test.*
+*.exe
