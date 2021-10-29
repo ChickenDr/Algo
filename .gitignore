@@ -3,3 +3,4 @@ TMP.*
 .vscode
 test.*
 *.exe
+BOJ.*
