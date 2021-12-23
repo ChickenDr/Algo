@@ -9,7 +9,7 @@ int cnt = 0;
 int gold(int n)
 {
 	int tmp = n - arry[cnt];
-	vector<int>::iterator p = std::find(arry.begin(), arry.end(), tmp);
+	vector<int>::iterator p = find(arry.begin(), arry.end(), tmp);
 	if (p != arry.end())
 	{
 		cnt = 0;
