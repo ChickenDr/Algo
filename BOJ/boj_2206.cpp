@@ -8,7 +8,7 @@ using namespace std;
 int n, m, mx[4] = { 1, -1, 0, 0 }, my[4] = { 0, 0, 1, -1 }, resualt[1001][1001];
 vector<string> map;
 bool visit[1001][1001][2];
-queue<pair<pair<int, int>, bool>> q; 
+queue<pair<pair<int, int>, bool> > q; 
 
 int bfs(){
     visit[0][0][0] = true;

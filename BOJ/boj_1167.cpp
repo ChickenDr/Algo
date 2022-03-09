@@ -6,7 +6,7 @@
 using namespace std;
 
 int N, resualt = -1, max_node = -1, max_dst = -1;
-vector<pair<int, int>> tree [100001];
+vector<pair<int, int> > tree [100001];
 bool visit[100001];
 
 void dfs(int x, int cnt){
