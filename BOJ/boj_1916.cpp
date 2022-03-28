@@ -10,8 +10,8 @@ using namespace std;
 int n, m, v1, v2;
 bool visit[1001];
 vector<int> dst(1001, MAX);
-vector<pair<int, int>> tree[1001];
-priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+vector<pair<int, int> > tree[1001];
+priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int> > > pq;
 
 void dijk(int start){
     dst[start] = 0;
