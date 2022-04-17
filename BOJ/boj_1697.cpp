@@ -5,42 +5,46 @@
 #include <algorithm>
 
 using namespace std;
-int N, K, resualt = 1000000;
+int N, K, resualt = 0;
 bool visited[100001];
 
-void dfs(int x, int dst){
-    queue<pair<int, int> > q;
-    q.push(make_pair(x, dst));
-    visited[x] = true;
+int dfs(int x){
+    queue<int> q;
+    q.push(x);
+
     while(!q.empty()){
-        pair<int, int> curr = q.front();
-        q.pop();
+        int tmp = q.size();
+        for (int i = 0; i < tmp; i++)
+        {
+            int curr = q.front();
+            q.pop();
 
-        if(curr.first == K){
-            resualt = min(resualt, curr.second);
-            continue;
-        }
+            if(curr == K) return resualt;
 
-        if(x - 1 >= 0 && !visited[x - 1]){
-            q.push(make_pair(curr.first - 1, curr.second + 1));
-            visited[curr.first] = true;
+            if(curr - 1 >= 0 && !visited[curr - 1]){
+                q.push(curr - 1);
+                visited[curr - 1] = true;
+            }
+
+            if(curr + 1 <= 100000 && !visited[curr + 1]){
+                q.push(curr + 1);
+                visited[curr + 1] = true;
+            }
+
+            if(curr * 2 <= 100000 && !visited[curr * 2]){
+                q.push(curr * 2);
+                visited[curr * 2] = true;
+            }   
         }
-        if(!visited[x + 1]){
-            q.push(make_pair(curr.first + 1, curr.second + 1));
-            visited[curr.first] = true;
-        }
-        if(!visited[x * 2]){
-            q.push(make_pair(curr.first * 2, curr.second + 1));
-            visited[curr.first] = true;
-        }
+        resualt++;
     }
 }
 
 int main(){
+    memset(visited, false, sizeof(visited));
     cin >> N >> K;
 
-    dfs(N, 0);
-    cout << resualt << endl;
+    cout << dfs(N) << endl;
 
     return 0;
 }
