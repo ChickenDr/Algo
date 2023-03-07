@@ -4,8 +4,9 @@ global arr, ran, target
 
 
 def solve():
+    index = 0
     for i in arr:
-        if ()
+        if(x arr[0])
     return
 
 
