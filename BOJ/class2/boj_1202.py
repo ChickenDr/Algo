@@ -11,11 +11,10 @@ def solve():
     tmp = []
     for x in bag:
         while arr and x >= arr[0][0]:
-            heapq.heappush(tmp, -heapq.heappop(0)[1])
-            heapq.heappop(arr)
+            heapq.heappush(tmp, -heapq.heappop(arr)[1])
         if tmp:
             resualt -= heapq.heappop(tmp)
-        elif not tmp:
+        elif not arr:
             break
     return resualt
 
@@ -27,7 +26,7 @@ if __name__ == "__main__":
     
     for _ in range(K):
         bag.append(int(sys.stdin.readline()))
-    arr.sort()
+    
     bag.sort()
 
     print(f"{solve()}")
