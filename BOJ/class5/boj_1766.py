@@ -1,26 +1,37 @@
 import sys
 import heapq
 
-arr = []
+global graph, degree
 resualt = []
+arr = []
 
 def solve():
     while arr:
-        tmp = heapq.heappop(arr)
-        if tmp[0] in resualt:
-            continue
-        resualt.append(tmp[0])
-        resualt.append(tmp[1])
+        x = heapq.heappop(arr)
+        resualt.append(x)
+
+        for nx in graph[x]:
+            degree[nx] -= 1
+
+            if degree[nx] == 0:
+                heapq.heappush(arr, nx)
     return
 
 
 if __name__ == "__main__":
     N, M = map(int, input().split())
 
+    graph = [[] for _ in range(N + 1)]
+    degree = [0] * (N + 1)
+    
     for _ in range(M):
-        heapq.heappush(arr, list(map(int, sys.stdin.readline().split())))
+        a, b = map(int, input().split())
+        graph[a].append(b)
+        degree[b] += 1
+    
+    for i in range(1, N + 1):
+        if degree[i] == 0:
+            heapq.heappush(arr, i)
 
-    print(arr)
     solve()
-    for x in resualt:
-        print(f'{x}', end=" ")
+    print(*resualt)
