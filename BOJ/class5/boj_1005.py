@@ -7,8 +7,8 @@ target  = 0
 def solve():
     while tmp:
         x = heapq.heappop(tmp)
-        resualt.append(x)
-
+        
+        
         for nx in graph[x]:
             degree[nx] -= 1
 
@@ -16,7 +16,7 @@ def solve():
                 heapq.heappush(tmp, nx)
     return resualt
 
-
+000
 if __name__ == "__main__":
     loop = int(input())
     for _ in range(loop):
