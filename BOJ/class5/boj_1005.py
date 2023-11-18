@@ -16,7 +16,6 @@ def solve():
                 heapq.heappush(tmp, nx)
     return resualt
 
-000
 if __name__ == "__main__":
     loop = int(input())
     for _ in range(loop):
